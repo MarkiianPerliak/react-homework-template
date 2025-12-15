@@ -1,22 +1,33 @@
 import { Component } from "react"
 import stickers from "./sticker.json"
 
+import styled from 'styled-components';
+
 export class Sticker extends Component {
     state = {
-        name: null,
+        label: null,
         url: null
     }
 
-    getInfo = () => this.setState({name: {sticker.label}})
+    getInfo = (event) => {
+    this.props.getChoiceData(event.target.alt, event.target.src)
+    }
 
     render() {
         return (
             <>
                 {stickers.map(sticker => {
-                    return <li><img src={sticker.img} alt={sticker.label} /></li>
+                    return <Item><img onClick={this.getInfo} src={sticker.img} alt={sticker.label} /></Item>
                 })}
             </>
         )
     }
 }
 
+
+const Item = styled.li`
+background-color: #5b5f68ff;
+width: min-content;
+border: 1px white solid;
+border-radius: 30px;
+`
