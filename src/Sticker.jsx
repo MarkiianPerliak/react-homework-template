@@ -17,7 +17,7 @@ export class Sticker extends Component {
         return (
             <>
                 {stickers.map(sticker => {
-                    return <Item><img onClick={this.getInfo} src={sticker.img} alt={sticker.label} /></Item>
+                    return <Item><img key={sticker.id} onClick={this.getInfo} src={sticker.img} alt={sticker.label} /></Item>
                 })}
             </>
         )
